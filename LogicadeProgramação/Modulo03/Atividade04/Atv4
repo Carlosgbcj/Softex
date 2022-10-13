@@ -1,0 +1,23 @@
+ope = input ('''
+Escolha a operação matematica: 
++ =  soma
+- = subtração
+* = multiplicação
+/ = divisão
+''')
+
+num1 = float(input('Digite o Primeiro Numero: '))
+num2 = float(input('Digite o Segundo Numero: '))
+
+num3 = float(input('Digite o terceiro Numero: '))
+
+if ope == '+':
+    print (num1 + num2 + num3)
+elif ope == '-':
+    print(num1 - num2 - num3)
+elif ope == '*':
+    print(num1 * num2 * num3)
+elif ope == '/':
+    print((num1 / num2) / num3)
+else: 
+    print('operação matematica não encontrada')
