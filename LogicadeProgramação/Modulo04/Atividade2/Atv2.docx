@@ -1,0 +1,37 @@
+class tv:
+    def __init__(self):
+        self.cor = 'Preta'
+        self.ligada = False
+        self.volume = 10
+
+class som:
+    def __init__(self):
+        self.estacao = 97.5
+        self.cor = 'Branco'
+        self.volume = 20
+#=================================================
+class computador:
+    def __init__(self):
+        self.marca = 'Dell'
+        self.cor = 'Preta'
+        self.memoria = '8GB'
+
+class celular:
+    def __init__(self):
+        self.marca = 'Samsung'
+        self.cor = 'Vermelho'
+        self.memoria = '128GB'
+
+
+tv_sala = tv()
+tv_quarto = tv()
+print(tv_sala.ligada)
+
+celular_01 = celular()
+celular_02 = celular()
+print(celular_01.marca)
+
+computador_01 = computador()
+computador_02 = computador()
+print(computador_01.marca)
+print(computador_02.memoria)
