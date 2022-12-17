@@ -1,0 +1,240 @@
+Aula 13 - Grafos
+A estrutura de dados Grafo
+
+Um Grafo é uma estrutura de dados formada por um conjunto de não vazio de vértices (ou nós) e por um conjunto de arestas (ou arcos), ligando estes vértices.
+
+
+
+No grafo a seguir temos o seguintes conjuntos:
+
+V = {A, B, C, D, E}
+A = {(A,A), (A,B), (A, B), (A,C), (B,D), (B,E), (C,E)}
+
+
+
+Seja G um grafo onde V é o conjunto dos vértices e A é o conjunto das arestas.
+
+Afirmar que A contém a aresta v-w, é o mesmo que afirmar que A contém a aresta w-v.
+
+Definições importantes
+
+1 - Um grafo é simples (ou regular) se não possuir laços e nem mais de uma aresta ligando dois vértices.
+
+
+
+2 - A vizinhança de um nó é definida assim:
+
+N(v) = {w pertence a V | v-w pertence a A}.
+
+Nestes casos podemos dizer que o vértice w é adjacente a v e que a aresta v-w incide no vértice v.
+
+
+
+
+3 - O grau de um vértice é a quantidade de arestas que incidem nele.
+
+• Um vértice é dito isolado se possuir grau zero.
+
+
+
+4 - Um grafo completo com n vértices é um grafo simples onde existe uma aresta ligando todo par não ordenado vértices distintos.
+
+•O número máximo de arestas em um grafo com n vértices é n * (n-1) /2.
+
+
+
+5 - Um grafo não precisa ser uma árvore, mas toda árvore é um grafo.
+
+
+
+
+Representação de um Grafo
+
+Um grafo pode ser representado por uma matriz N x N, onde N é a quantidade de vértices de um grafo.
+
+Há grafos que possuem pesos associados às arestas. Assim, o peso é armazenado no matriz.
+
+
+
+
+
+
+
+Grafo orientado (ou dígrafo)
+
+Quando as arestas possuem sentido, dizemos que o grafo é orientado (ou dígrafo). Nestes casos, cada aresta é representada por um par ordenado <nó_origem, nó_destino>.
+
+Desta forma, a aresta v-w não é igual a aresta w-v.
+
+
+
+
+Grafo Dígrafo também é chamado Grafo Direcionado (digraph = directed graph)
+
+V = {A, B, C, D, E, F}
+A = {<A,B>, <B,A>, <B,C>, <B,E>, <C,A>, <C,D>, <E,F>, <F,E>, <F,A>}
+
+
+
+
+Em um dígrafo um vértice n (com n pertence V) possui:
+ grau de entrada: número de arestas que têmn como cabeça da seta (origem da seta)
+ grau de saída: número de arestas que têm n como terminação da seta (destino da seta)
+
+
+Grau dos vértices em um dígrafo
+
+ grau do vértice: número de arestas que incidem em n (soma do grau de entrada com o grau de saída).
+ Um dígrafo com n vértices é considerado completo se possuir a quantidade máxima de arestas, ou seja, é n * (n-1).
+Vértice A:
+grau de entrada: 3
+grau de saída: 1
+grau: 4
+
+Vértice B:
+grau de entrada: 1
+grau de saída: 3
+grau: 4
+
+Vértice D:
+grau de entrada: 1
+grau de saída: 0
+grau: 1
+
+
+
+Relações representadas através de grafos
+
+Uma relação R num conjunto A é uma sequencia de pares ordenados de elementos de A.
+
+R = { (a;b) | a pertence A pertence b pertence B pertence a P(a,b) é verdadeira}
+
+Exemplo:
+Seja V = {3, 4, 5,6} e R: V pertence a V, {(x,y), com x e y pertence a V | x < y }
+
+R = {<3, 4><3, 5><3,6><4,5><4,6><5,6>}
+
+
+
+É possível associar um valor a cada aresta pertencente à relação. Assim, tem-se um grafo orientado e valorado.
+
+
+
+
+Exemplo: Sejam V o conjuntos dos vértices de um grafo G, R a relação definida e A o conjunto de arestas (<x,y>, peso) obtidos com a relação R.
+
+
+V = {1, 4, 7, 8}
+peso = x - y
+R = {(<4, 1>, 3) (<7, 1>,6) (<7,4>,3) (<8,1>,7) (<8,4>,4) (<8,7>,1)}
+
+
+Representação de um dígrafo
+
+Um dígrafo pode ser representado por uma matriz
+
+  
+ A	 B	 C	D
+ A	 0	 0	 1	 0
+ B	 1	 0	 1	 0
+ C	 0	 0	 0	 0
+ D	 0	 1	 0	 1
+
+N x N, onde N é a quantidade de vértices.
+Há dígrafos que possuem pesos associados às arestas.
+
+Assim, o peso de cada aresta é armazenado na matriz.
+
+Caminho entre vértices
+
+ Um caminho de comprimento k do vértice a até o vértice b é definido como uma sequência de k+1 vértices n1, n2, ..., nk+1, tal que n1= a e nk+1 = b.
+ Um caminho de um nó até ele mesmo é chamado ciclo.
+ Se o grafo possuir um ciclo ele é chamado cíclico. Caso contrário, ele é chamado acíclico, ou dag (directed acyclic graph)
+No grafo abaixo existem:
+
+
+
+
+
+ um caminho de tamanho 1 de C até F;
+ um caminho de tamanho 3 de C até A (C-D-B-A);
+ um caminho de tamanho 5 de C até A (C-F-E-D-B-A);
+ um ciclo de A para A, de E para E, ...;
+ não existe um caminho de F para C;
+Exemplo de um programa em C para determinar o caminho entre duas cidades
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+#define TAM 6
+
+void iniciarGrafo(int mat[][TAM]) {
+    int i, j;
+    for (i=0; i<TAM; i++)
+        for (j=0; j<TAM; j++)
+            mat[i][j] = 0;
+}
+
+void join(int mat[][TAM], int cidade1, int cidade2) {
+    mat[cidade1][cidade2]=1;
+}
+
+int adjacente(int mat[][TAM], int cidade1, int cidade2) {
+    if (mat[cidade1][cidade2])
+        return 1;
+    else return 0;
+}
+
+int procuraCaminho(int mat[][TAM], int cidade1, int cidade2, int k) {
+    int c;
+    if (k ==1) {
+        if (adjacente(mat, cidade1, cidade2))
+            return 1;
+        else return 0;
+    }
+    for (c=0; c<TAM; ++c)
+        if (adjacente(mat, cidade1, c) && procuraCaminho(mat, c, cidade2, k-1))
+            return 1;
+    return 0;
+}
+
+int main() {
+    int matriz[TAM][TAM];
+    int cidade1, cidade2, k, temCaminho;
+    char resp='S', caminho[30]="\0";
+    iniciarGrafo(matriz);
+    while (toupper(resp) == 'S') {
+
+    do {
+        printf("Digite o codigo da cidade de origem: ");
+        scanf("%i", &cidade1);
+    } while (cidade1 <1 || cidade1 >TAM);
+
+    do {
+        printf("Digite o codigo da cidade de destino: ");
+        scanf("%i", &cidade2);
+    } while (cidade2 <1 || cidade2 >TAM);
+
+    printf("Realizar outro join? ");
+    join(matriz, cidade1-1, cidade2-1);
+    fflush(stdin);
+    scanf("%c", &resp);
+
+    }//fim while
+
+printf("Digite cidade A: ");
+scanf("%i", &cidade1);
+printf("Digite cidade B: ");
+scanf("%i", &cidade2);
+printf("Digite tamanho do caminho: ");
+scanf("%i", &k);
+temCaminho = procuraCaminho(matriz, cidade1-1, cidade2-1, k);
+
+    if (temCaminho ==1)
+        printf("Existe caminho de comprimento %i entre as cidades %i e% i", k, cidade1, cidade2);
+    else
+        printf("Nao existe caminho de comprimento %i entre as cidades %i e% i", k, cidade1, cidade2);
+    system("pause");
+    return 0;
+}
