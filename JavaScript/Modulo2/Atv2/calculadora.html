@@ -1,0 +1,46 @@
+<!DOCTYPEhtml >
+< html  lang =" pt-br " >
+
+< cabeça >
+    < meta  charset =" UTF-8 " >
+    < meta  http-equiv =" X-UA-Compatible " content =" IE=edge " >
+    < meta  name =" janela de visualização " conteúdo =" largura=largura do dispositivo, escala inicial=1,0 " >
+    <!-- CSS compilado e reduzido -->
+    < link  rel =" folha de estilo " href =" /JS/Modulo00/curriculoBeth/materialize/css/materialize.min.css " >
+    < title > Calculadora SOFTEX </ title >
+</ cabeça >
+
+< corpo >
+    < div  classe =" recipiente " >
+        < h3  class =" center " > Calculadora Prática JS - SOFTEX </ h3 >
+        < form  class =" container " >
+            < conjunto de campos >
+                < legend > < b > Calculadora </ b > </ legend >
+                < div  classe =" recipiente " >
+                    < div  class =" linha " >
+                        < div  class =" campo de entrada col s6 " >
+                            < input  id =" num1 " type =" número " class =" validar " >
+                            < label  for =" num1 " > 1º Número </ label >
+                        </ div >
+                        < div  class =" campo de entrada col s6 " >
+                            < input  id =" num2 " type =" número " class =" validar " >
+                            < label  for =" num2 " > 2º Número </ label >
+                        </ div >
+                    </ div >
+                    < div  class =" centro " >
+                        < botão  tipo =" botão " onclick =" somar(); " > Somar </ botão >  
+                        < botão  tipo =" botão " onclick =" subtrair(); " > Subtrair </ botão >  
+                        < botão  tipo =" botão " onclick =" multiplicar(); " > Multiplicar </ botão >  
+                        < botão  tipo =" botão " onclick =" dividir(); " > Dividir </ botão >
+                    </ div >
+                    < p  id =" resultado " class =" centro " > </ p >
+                </ div >
+            </ conjunto de campos >
+        </ forma >
+    </ div >
+</ corpo >
+<!-- JavaScript compilado e minificado -->
+< script  src =" /JS/Modulo00/curriculoBeth/materialize/js/materialize.min.js " > </ script >
+< script  src =" calculadora.js " > </ script >
+
+</ html >
