@@ -1,11 +1,5 @@
 {
-    "nome" : " pacote-lock.json " ,
-    "versão" : " 1.0.0 " ,
-    "descrição" : " " ,
-    "principal" : " index.js " ,
-    "scripts" : {
-      "test" : " echo \" Erro: nenhum teste especificado \" && exit 1 "
-    },
-    "autor" : " " ,
-    "licença" : " ISC "
+  "dependências" : {
+    "readline-sync" : " ^1.4.10 "
   }
+}
