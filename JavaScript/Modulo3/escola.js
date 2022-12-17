@@ -12,9 +12,9 @@ var  mídia  =  mídia ( nota1 ,  nota2 ,  nota3 ) ;
 
 console . log ( nome  +  ' sua média é: '  +  media ) ;
 
-var  aprovação  =  ( mídia )  =>  {
+var  aprovacao  =  ( mídia )  =>  {
     if  ( media  >=  7.0 )  return  "Aprovado"
-    senão  retorne  "Reprovado"
+    senao  retorne  "Reprovado"
 } ;
 
 console . log ( nome  +  'você foi'  +  aprovação ( media ) ) ;
