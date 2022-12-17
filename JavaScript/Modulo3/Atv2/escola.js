@@ -1,28 +1,38 @@
 var  readlineSync  =  require ( 'readline-sync' ) ;
 
-var  nome  =  input ( 'Digite o seu nome: ' ) ;
+var  nome  =  readlineSync . question ( "Qual seu nome?" ) ;
 
 console . log ( saudacao ( ) ) ;
 
-var  nota1  =  input ( questionFloat ( nome  +  ' informe sua nota 1: ' ) ) ;
-var  nota2  =  input ( questionFloat ( nome  +  ' informe sua nota 2: ' ) ) ;
-var  nota3  =  input ( questionFloat ( nome  +  ' informe sua nota 3: ' ) ) ;
+var  nota1  =  readlineSync . questionFloat ( "Digite a sua primeira nota?" ) ;
+var  nota2  =  readlineSync . questionFloat ( "Digite a sua segunda nota?" ) ;
+console . log ( quantoRestaNota ( nota1 ,  nota2 ) ) ;
 
-var  mídia  =  mídia ( nota1 ,  nota2 ,  nota3 ) ;
+var  nota3  =  readlineSync . questionFloat ( "Digite a sua terceira nota?" ) ;
 
-console . log ( nome  +  ' sua média é: '  +  media ) ;
+var  mediaAluno  =  media ( nota1 ,  nota2 ,  nota3 ) ;
 
-var  aprovacao  =  ( mídia )  =>  {
-    if  ( media  >=  7.0 )  return  "Aprovado"
-    senao  retorne  "Reprovado"
-} ;
+console . log ( "Sua média foi "  +  mediaAluno ) ;
 
-console . log ( nome  +  'você foi'  +  aprovação ( media ) ) ;
-
-função  saudação ( )  {
-    return  "Olá"  +  nome ;
+var  aprovado  =  ( mídia )  =>  {
+    if  ( média  >=  7.0 )  {
+        return  "aprovado carai!" ;
+    }  senão  {
+        return  "reprovado porra, va estudar!" ;
+    }
 }
 
-função  mídia ( n1 ,  n2 ,  n3 )  {
-    retornar  ( n1  +  n2  +  n3 )  /  3 ;
+console . log ( nome  +  "voz foi"  +  aprovado ( mediaAluno ) ) ;
+
+função  saudação ( )  {
+    return  "Ola aluno(a) "  +  nome ;
+}
+
+function  quantoRestaNota ( n1 ,  n2 )  {
+    var  n3  =  21  -  n1  -  n2 ;
+    return  "Voce precisa de "  +  n3  +  " como sua última nota." ;
+}
+
+função  mídia ( b1 ,  b2 ,  b3 )  {
+    retornar  ( b1  +  b2  +  b3 )  /  3 ;
 }
