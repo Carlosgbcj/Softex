@@ -1,0 +1,7 @@
+{
+    "dependências" : {
+      "expresso" : " ^4.18.1 " ,
+      "mysql2" : " ^2.3.3 " ,
+      "sequelize" : " ^6.21.3 "
+    }
+  }
